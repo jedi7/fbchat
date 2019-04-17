@@ -366,7 +366,8 @@ class Client(object):
         if "save-device" in r.url:
             r = self._cleanGet(self.req_url.SAVE_DEVICE)
 
-        if "home" in r.url:
+#        print("FB page: ", repr(r.text))
+        if "/home.php?ref_component" in r.text:
             self._postLogin()
             return True, r.url
         else:
